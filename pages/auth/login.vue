@@ -42,7 +42,7 @@
                     }
                         router.push('/')
                     } 
-                    catch (error) {
+                    catch () {
                     }
             }
         }
