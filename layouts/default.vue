@@ -1,10 +1,9 @@
-<template>
+<template data-theme="cupcake">
     <div>
     <!-- this is default layout . a component will get it in default -->
-
-      <p>This is default layout</p>
-       <!-- <NuxtPage>
-      </NuxtPage> -->
+    <NuxtLoadingIndicator />
+      <LayoutHeader></LayoutHeader>
       <slot/>
+      <LayoutFooter></LayoutFooter>
     </div>
   </template>

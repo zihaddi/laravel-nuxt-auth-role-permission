@@ -4,7 +4,6 @@
     layout:'custom'
   }) -->
     <div>
-      <p>This is custom layout</p>
        <NuxtPage>
       </NuxtPage>
     </div>

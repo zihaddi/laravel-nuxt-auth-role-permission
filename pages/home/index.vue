@@ -10,7 +10,9 @@
   </template>
   
   <script>
-  
+  definePageMeta({
+     layout: 'dashboard',
+   });
   export default {
     data() {
       return {

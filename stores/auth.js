@@ -11,11 +11,12 @@ export const useAuthStore =defineStore('auth' , {
         isLoggedIn : false
     }),
 
-
+  
     actions :{
         async login(email , password){
             console.log(email , password)
             const axios = useNuxtApp().$axios;
+            const Swal = useNuxtApp().$Swal
             axios.post(`/api/login`,{email , password})
                     .then((response) => {
                         console.log(response.data)
@@ -27,10 +28,26 @@ export const useAuthStore =defineStore('auth' , {
                         this.$state.isLoggedIn = true;
                     })
                     .catch((error) => {
-                    console.error(error);
+                    
                     });
-                    this.$globalFunctions.globFunction1();
-                    this.$globalFunctions.globFunction2();
-                }
+                },
+
+
+        async logout() {
+                    const axios = useNuxtApp().$axios;
+                    await axios.get('/api/logout')
+                    .then((response)=>{
+                        console.log(response.data)
+                    })
+                    this.resetState()
+                },
+        
+        resetState() {      
+                    this.$state.id = ''
+                    this.$state.full_name = ''
+                    this.$state.email = ''
+                    this.$state.api_token = ''
+                    this.$state.isLoggedIn = false
+                },        
     }
 })
